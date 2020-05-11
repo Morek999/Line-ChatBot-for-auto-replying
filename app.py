@@ -84,7 +84,7 @@ def message_text(event):
 	msg_time = datetime.datetime.now() + datetime.timedelta(hours=8)		# Switch timestamp to UTC+8
 	msg_src = event.source.type + "_" + source_id(event.source.type)		# Concatenate source type and source id
 
-	if 'ax' in profile.display_name:
+	if '修民' in profile.display_name:
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text=profile.display_name))
 		return 0
 
