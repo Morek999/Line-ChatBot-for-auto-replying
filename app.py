@@ -99,7 +99,7 @@ def message_text(event):
 			content = '要' * np.random.randint(1, 5)
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 		return 0
-	elif '酒' or '喝' in msg:
+	elif '酒' in msg or '喝' in msg:
 		if np.random.random() > 0.4:
 			content = '酒? 喝酒啦喝啦喝啦~'
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
