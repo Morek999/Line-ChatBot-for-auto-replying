@@ -87,7 +87,7 @@ def message_text(event):
 	if '修民' in profile.display_name:
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='閉嘴'))
 		return 0
-	else '臥底' in msg:
+	elif '臥底' in msg:
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Max帥'))
 		return 0
 
