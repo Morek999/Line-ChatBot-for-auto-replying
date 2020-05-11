@@ -85,7 +85,7 @@ def message_text(event):
 	msg_src = event.source.type + "_" + source_id(event.source.type)		# Concatenate source type and source id
 
 	if '修民' in profile.display_name:
-		line_bot_api.reply_message(event.reply_token, TextSendMessage(text=profile.display_name))
+		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='閉嘴'))
 		return 0
 
 
