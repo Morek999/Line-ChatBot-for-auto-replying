@@ -84,8 +84,6 @@ def message_text(event):
 	msg_time = datetime.datetime.now() + datetime.timedelta(hours=8)		# Switch timestamp to UTC+8
 	msg_src = event.source.type + "_" + source_id(event.source.type)		# Concatenate source type and source id
 
-	line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.source.user_id))
-
 	if profile.display_name[0:2] == '修民':
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='閉嘴'))
 		return 0
