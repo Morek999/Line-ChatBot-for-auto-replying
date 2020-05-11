@@ -18,7 +18,7 @@ import sys
 import threading
 import time
 import json
-import numpy as np
+from numpy import random
 import datetime
 import configparser
 
@@ -85,22 +85,30 @@ def message_text(event):
 	msg_time = datetime.datetime.now() + datetime.timedelta(hours=8)		# Switch timestamp to UTC+8
 	msg_src = event.source.type + "_" + source_id(event.source.type)		# Concatenate source type and source id
 
-	if event.source.user_id == 'U608b24e2c1eb1e60eeb36c2c332ed328' and np.random.random() > 0.6:
+	if event.source.user_id == 'U608b24e2c1eb1e60eeb36c2c332ed328' and random.random() > 0.6:
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='閉嘴'))
 		return 0
+	elif msg == '閉嘴':
+		content = '你才閉嘴!!! 你全家都閉嘴!!!!!!!!!!!'
+		line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+		return 0
+	elif '樂樂' in msg:
+		content = '樂樂考試考滿分 ^O^ ~~'
+		line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+		return 0
 	elif '臥底' in msg:
-		if np.random.random() > 0.4:
+		if random.random() > 0.4:
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Max帥'))
 		else:
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f'{profile.display_name}棒'))
 		return 0
 	elif '要不要' in msg:
-		if np.random.random() > 0.4:
-			content = '要' * np.random.randint(1, 5)
+		if random.random() > 0.4:
+			content = '要' * random.randint(1, 5)
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 		return 0
 	elif '酒' in msg or '喝' in msg:
-		if np.random.random() > 0.4:
+		if random.random() > 0.4:
 			content = '酒? 喝酒啦喝啦喝啦~'
 			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 		return 0
