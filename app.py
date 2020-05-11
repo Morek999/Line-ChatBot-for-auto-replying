@@ -89,8 +89,26 @@ def message_text(event):
 		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='閉嘴'))
 		return 0
 	elif '臥底' in msg:
-		line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Max帥'))
+		if np.random.random() > 0.4:
+			line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Max帥'))
+		else:
+			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=f'{profile.display_name}棒'))
 		return 0
+	elif '要不要' in msg:
+		if np.random.random() > 0.4:
+			content = '要' * np.random.randint(1, 5)
+			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+		return 0
+	elif '酒' or '喝' in msg:
+		if np.random.random() > 0.4:
+			content = '酒? 喝酒啦喝啦喝啦~'
+			line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+		return 0
+	elif '修民' in msg:
+		content = '修民說啤酒不會倒，啤酒獵人請鎖定目標'
+		line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+		return 0
+	
 
 
 # Run the app	
